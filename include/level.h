@@ -58,7 +58,7 @@ int load_level(const char *name, level_t *level);
 /** handles the saving or loading process
  * @param name name of the save file, max length is 249 char
  * @param level level struct to save or free and load into
- * @param load True if loading a level, anythin else to save a level
+ * @param load True if loading a level, False to save a level
  * @returns sfTrue (1)
  * OR sfFalse (0) on error
  */

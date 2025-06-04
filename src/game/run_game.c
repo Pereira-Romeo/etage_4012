@@ -16,4 +16,5 @@ void run_game(win_t *win, game_t *game)
     (void) win;
     manage_interaction(game->level.player, &(game->level));
     move_entity(game->level.player, &(game->level));
+    run_hud(win, &(game->hud), game->level.player);
 }

@@ -10,7 +10,9 @@ SRC += $(wildcard src/*.c)
 SRC += $(wildcard src/audio/*.c)
 SRC += $(wildcard src/events/*.c)
 SRC += $(wildcard src/game/*.c)
+SRC += $(wildcard src/game/gun/*.c)
 SRC += $(wildcard src/game/entity/*.c)
+SRC += $(wildcard src/game/hud/*.c)
 SRC += $(wildcard src/game/level/*.c)
 SRC += $(wildcard src/game/map/*.c)
 SRC += $(wildcard src/game/map/mini_map/*.c)
@@ -48,7 +50,7 @@ OBJ = $(SRC:.c=.o)
 
 NAME = wolf3d
 
-CFLAGS = -Wall -Wextra -iquote include -g
+CFLAGS = -Wall -Wextra -iquote include
 
 LDFLAGS = -lm -lcsfml-graphics -lcsfml-system -lcsfml-audio
 

@@ -9,7 +9,7 @@
 
 int change_scene_game(wolf3d_t *w3d)
 {
-    setup_game(w3d->game, NULL);
+    setup_game(w3d->win, w3d->game, NULL);
     w3d->prev_scene = w3d->scene;
     w3d->scene = GAME;
     return 0;

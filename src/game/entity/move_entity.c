@@ -56,7 +56,8 @@ void move_entity(entity_t *entity, level_t *level)
     (strafe * sin(entity->cam.yaw) * -1);
     float new_y = (walk * sin(entity->cam.yaw)) +
     (strafe * cos(entity->cam.yaw));
-    float speed = entity->move.speed + (entity->move.speed * entity->move.run);
+    float speed = entity->move.speed + (entity->move.speed * entity->move.run
+    * 3);
 
     speed = (walk > 0) ? speed : 1;
     rotate_entity(entity);

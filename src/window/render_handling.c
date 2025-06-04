@@ -40,6 +40,7 @@ int draw_scene(wolf3d_t *w3d)
         run_game(w3d->win, w3d->game);
         if (draw_game(w3d->win, w3d->game) == 84)
             return 84;
+        draw_gun(w3d);
         w3d->game->animation_tick++;
     } else {
         display_scene(&(w3d->menus[w3d->scene]),

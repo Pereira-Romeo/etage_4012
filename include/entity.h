@@ -27,6 +27,8 @@
     #define INTERACTION_RANGE TILE_SIZE
 
 
+typedef struct level_s level_t;
+
 typedef enum entity_type_s {
     PLAYER,
     ENNEMY
@@ -165,6 +167,12 @@ void move_entity_list(entity_t **entities, level_t *level);
  * @param level leve_t
  */
 void manage_interaction(entity_t *entity, level_t *level);
+
+/** lower an entity's health by dmg
+ * @param entity entity to attack
+ * @param dmg damage to be dealt
+ */
+void lower_entity_hp(entity_t *entity, float dmg);
 
 //------------------------------ Draw -----------------------------//
 

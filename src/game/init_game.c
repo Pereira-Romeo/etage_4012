@@ -83,11 +83,13 @@ int setup_walls_assets(game_t *game)
 }
 
 static
-int setup_level_assets(game_t *game)
+int setup_level_assets(win_t *win, game_t *game)
 {
     if (setup_bg(&(game->floor), &(game->floor_texture), FLOOR_TEXTURE) == 84)
         return 84;
     if (setup_walls_assets(game) == 84)
+        return 84;
+    if (init_hud(win, &(game->hud)) == 84)
         return 84;
     return sfTrue;
 }
@@ -116,9 +118,9 @@ int setup_level(game_t *game, char *level_name)
 }
 
 //should play elevator sound and display loading screen
-int setup_game(game_t *game, char *level_name)
+int setup_game(win_t *win, game_t *game, char *level_name)
 {
-    if (setup_level_assets(game) == 84)
+    if (setup_level_assets(win, game) == 84)
         return 84;
     if (setup_level(game, level_name) != sfTrue)
         return 84;

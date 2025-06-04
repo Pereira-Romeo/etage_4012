@@ -44,6 +44,8 @@ void key_event_handler(wolf3d_t *w3d, sfEvent *event, int activate)
         return;
     }
     player_key_events(w3d->game->level.player, event, activate);
+    if (event->key.code == sfKeySpace && activate)
+        w3d->game->gun->isanimated = 1;
 }
 
 static

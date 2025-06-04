@@ -52,4 +52,10 @@ void player_key_events(entity_t *player, sfEvent *event, int activate)
     if (event->key.code == sfKeyF)
         player->flashlight = (activate) ?
         invert_bool(player->flashlight) : player->flashlight;
+    if (event->key.code == sfKeyK && activate)
+        lower_entity_hp(player, 5);
+    if (event->key.code == sfKeyN && activate)
+        sleep(10);
+    if (event->key.code == sfKeyK && activate)
+        lower_entity_hp(player, 5);
 }

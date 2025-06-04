@@ -9,10 +9,9 @@
 
 int save_game_func(wolf3d_t *w3d)
 {
-    const char *save_filename = "savelevel.sav";
+    char *save_name = "user_save";
 
-    if (!save_level(save_filename, &(w3d->game->level))) {
+    if (!handle_save_load(save_name, &(w3d->game->level), sfFalse))
         return 0;
-    }
     return 1;
 }

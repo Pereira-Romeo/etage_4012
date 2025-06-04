@@ -20,7 +20,7 @@
     #define WINDOW_HEIGHT 1080
 
     #define DEFAULT_LIGHT_RAD 800
-    #define DEFAULT_LIGHT_MAX_DIST 900
+    #define DEFAULT_LIGHT_MAX_DIST 700
 
     #define PI 3.1415926535
     #define FOV (PI / 3.0)

@@ -28,6 +28,11 @@
 
     #define MAX_FILENAME_LEN 256
 
+/** random int generator limited to desired range
+ * @param min minimum number (included in the range)
+ * @param max maximum number (included in the range)
+ */
+int randint(int min, int max);
 
 /** struct option
  * @param buttons list of buttons
@@ -250,4 +255,7 @@ int diminue_volume_sfx(wolf3d_t *w3d);
 int save_game_func(wolf3d_t *w3d);
 int func_load_game(wolf3d_t *w3d);
 void free_musics(sounds_t sounds);
+gun_t *init_gun(gun_t *gun, win_t *win);
+void clock_gun(gun_t *gun);
+void draw_gun(wolf3d_t *w3d);
 #endif /* WOLF3D_H */

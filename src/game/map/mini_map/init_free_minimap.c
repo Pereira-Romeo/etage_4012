@@ -11,9 +11,9 @@ int init_minimap_error(minimap_t *mini_map)
 {
     if (!(mini_map->circle) || !(mini_map->tile)) {
         if (!(mini_map->circle))
-            write(STDERR_FILENO, "Init minimap: circle failure\n", 27);
+            write(STDERR_FILENO, "Init minimap: circle failure\n", 29);
         if (!(mini_map->tile))
-            write(STDERR_FILENO, "Init minimap: tile failure\n", 28);
+            write(STDERR_FILENO, "Init minimap: tile failure\n", 27);
         free_minimap(mini_map);
         return sfTrue;
     }
@@ -50,8 +50,12 @@ void free_minimap(minimap_t *mini_map)
 {
     if (!mini_map)
         return;
-    if (mini_map->tile)
+    if (mini_map->tile) {
         sfRectangleShape_destroy(mini_map->tile);
-    if (mini_map->circle)
+        mini_map->tile = NULL;
+    }
+    if (mini_map->circle) {
         sfCircleShape_destroy(mini_map->circle);
+        mini_map->circle = NULL;
+    }
 }

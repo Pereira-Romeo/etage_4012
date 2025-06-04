@@ -12,6 +12,7 @@ int draw_game(win_t *win, game_t *game)
     draw_game_bg(win, game);
     if (func_raycast(win->sfwin, game) == 84)
         return 84;
+    draw_hud(win, &(game->hud), game->level.player);
     draw_minimap(win->sfwin, game);
     return 0;
 }

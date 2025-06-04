@@ -27,5 +27,7 @@ void free_game(game_t *game)
     free_level(&(game->level));
     free_minimap(game->mini_map);
     free_column(game->column);
+    free_hud(&(game->hud));
+    free_gun(game->gun);
     game->level_id = -1;
 }

@@ -11,11 +11,11 @@ int init_column_error(column_t *column)
 {
     if (!(column->rect) || !(column->render_3d) || !(column->render_3d_wall)) {
         if (!(column->rect))
-            write(STDERR_FILENO, "Init column: rect failure\n", 27);
+            write(STDERR_FILENO, "Init column: rect failure\n", 26);
         if (!(column->render_3d))
-            write(STDERR_FILENO, "Init column: render_3d failure\n", 32);
+            write(STDERR_FILENO, "Init column: render_3d failure\n", 31);
         if (!(column->render_3d))
-            write(STDERR_FILENO, "Init column: render_3d_wall failure\n", 37);
+            write(STDERR_FILENO, "Init column: render_3d_wall failure\n", 36);
         free_column(column);
         return sfTrue;
     }
@@ -38,10 +38,16 @@ void free_column(column_t *column)
 {
     if (!column)
         return;
-    if (!(column->rect))
+    if (column->rect) {
         sfRectangleShape_destroy(column->rect);
-    if (!(column->render_3d))
+        column->rect = NULL;
+    }
+    if (column->render_3d) {
         sfVertexArray_destroy(column->render_3d);
-    if (!(column->render_3d_wall))
+        column->render_3d = NULL;
+    }
+    if (column->render_3d_wall) {
         sfVertexArray_destroy(column->render_3d_wall);
+        column->render_3d_wall = NULL;
+    }
 }
